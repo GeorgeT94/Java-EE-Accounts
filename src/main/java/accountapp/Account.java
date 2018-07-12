@@ -45,6 +45,12 @@ public class Account {
 		this.lastName = lastName;
 		this.accountNumber = accountNumber;
 	}
+	
+	
+	public long getId() {
+		return id;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
