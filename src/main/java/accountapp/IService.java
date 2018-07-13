@@ -12,4 +12,10 @@ public interface IService {
 	
 	public Account updateFirstName(long id, String newFirstName);
 	
+	public Account updateLastName(long id, String newLastName);
+	 
+	public Account updateAccountNumber(long id, String accountNumber);
+	
+	public String deleteAccountById(long id);
+	
 }

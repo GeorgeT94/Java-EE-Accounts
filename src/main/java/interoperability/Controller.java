@@ -2,6 +2,7 @@ package interoperability;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -48,11 +49,28 @@ public class Controller {
 	
 	@PUT @Consumes("application/json")
 	@Path("/update/firstName")
-	public String updateAccount(final Account input) { 
+	public String updateFirstNme(final Account input) { 
 		return service.updateFirstName(input);
 	}
 	
+	@PUT @Consumes("application/json")
+	@Path("/update/lastName")
+	public String updateLastNumber(final Account input) { 
+		return service.updateLastName(input);
+	}
+	
+	@PUT @Consumes("application/json")
+	@Path("/update/accountNumber")
+	public String uupdateAccountnumber(final Account input) { 
+		return service.updateAccountNumber(input);
+	}
 
-
+	@DELETE
+	@Path("{id}")
+	public String deleteAccount( @PathParam("id") long id,  @Context MessageContext req) {
+		String responseData = service.deleteAccountById(id);
+		
+	    return responseData;
+	}
 
 }

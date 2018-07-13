@@ -36,4 +36,20 @@ public class Service {
 		service.updateFirstName(account.getId(), account.firstName);
 		return "account updated";
 	}
+	
+	public String updateLastName(Account account) {
+		service.updateLastName(account.getId(), account.lastName);
+		return "account updated";
+	}
+	
+	public String updateAccountNumber(Account account) {
+		service.updateAccountNumber(account.getId(), account.accountNumber);
+		return "account updated";
+	}
+	
+	public String deleteAccountById(long id) {
+		return service.deleteAccountById(id);
+	}
+	
+	
 }

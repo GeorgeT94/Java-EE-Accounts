@@ -27,8 +27,6 @@ public class AccountServiceDBImpl implements IService {
     	
     }
     
-
-
     @Transactional(TxType.REQUIRED)
     public Account addAccount(Account account) {
         em.persist(account);
@@ -42,23 +40,37 @@ public class AccountServiceDBImpl implements IService {
     	return account;
     }
     
+    @Transactional
+    public Account updateLastName(long id, String newLastName) {
+    	Account account = getAccountById(id);
+    	account.setLastName(newLastName);
+    	return account;
+    }
+    
+    @Transactional
+    public Account updateAccountNumber(long id, String newAccountNumber) {
+    	Account account = getAccountById(id);
+    	account.setAccountNumber(newAccountNumber);
+    	return account;
+    }    
+    
     @Transactional(TxType.REQUIRED)
     public Account update(Account account, String firstName, String lastName, String accountNumber ) {
-    	  em.getTransaction().begin();
+
     	  account.setFirstName(firstName);
     	  account.setLastName(lastName);
     	  account.setAccountNumber(accountNumber);
-    	  em.refresh(account);
-    	  em.getTransaction().commit();
+
 
     	  return account;
     }
     
     @Transactional(TxType.REQUIRED)
-    public void delete(Account account) {
-    	  em.getTransaction().begin();
+    public String deleteAccountById(long id) {
+    	  Account account = getAccountById(id);
     	  em.remove(account);
-    	  em.getTransaction().commit();
+    	  
+    	  return "this account has been deleted";
     	  
     }
 }
