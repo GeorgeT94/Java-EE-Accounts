@@ -38,6 +38,9 @@ public class Account {
 	    )
 	private List<Transaction> transactions;
 	
+	public Account() {
+		super();
+	}
 	
 	public Account(String firstName, String lastName, String accountNumber) {
 		super();

@@ -5,9 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
 
-
+@ApplicationScoped
 @Alternative
 public class AccountServiceHashImpl implements IService{
 	public static final int BANNED_ACCOUNT = 123456; 
@@ -22,6 +23,10 @@ public class AccountServiceHashImpl implements IService{
 	public Account getAccountById(int accountNumber) {
 		String accountNumberStr = String.valueOf(accountNumber);
 		return accounts.get(accountNumberStr);
+		
+	}
+	public Account getAccountByFirstName(String firstName) {
+		return accounts.get(firstName);
 		
 	}
 	

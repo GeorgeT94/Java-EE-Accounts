@@ -2,12 +2,14 @@ package accountapp;
 
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
+@ApplicationScoped
 @Default
 @Transactional(TxType.SUPPORTS)
 public class AccountServiceDBImpl implements IService {
