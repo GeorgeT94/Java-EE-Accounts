@@ -12,10 +12,13 @@ import javax.enterprise.inject.Alternative;
 @Alternative
 public class AccountServiceHashImpl implements IService{
 	public static final int BANNED_ACCOUNT = 123456; 
+	private long ID;
 
 	private Map<String, Account> accounts = new HashMap<String, Account>();
 	
 	public Account addAccount(Account account){
+		ID++;
+		account.setId(ID);
 		accounts.put(String.valueOf(account.getId()), account);
 		return account;
 	}
