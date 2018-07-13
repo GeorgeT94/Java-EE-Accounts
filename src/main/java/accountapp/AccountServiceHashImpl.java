@@ -20,7 +20,7 @@ public class AccountServiceHashImpl implements IService{
 		return account;
 	}
 	
-	public Account getAccountById(int accountNumber) {
+	public Account getAccountById(long accountNumber) {
 		String accountNumberStr = String.valueOf(accountNumber);
 		return accounts.get(accountNumberStr);
 		
@@ -38,7 +38,20 @@ public class AccountServiceHashImpl implements IService{
 		return accountList;
 	}
 	
+	public Account updateFirstName(long id, String newFirstName) {
+		return getAccountById(id);
+	}
+	
+	public Account updateLastName(long id, String newFirstName) {
+		return getAccountById(id);
+	}
+	
+	public Account updateAccountNumber(long id, String newFirstName) {
+		return getAccountById(id);
+	}
+	
 
+	
 	public int getAccountCountByFirstName(String firstName) {
 		return (int) accounts.values().stream().filter(v -> v.getFirstName().equals(firstName)).count();
 	} 

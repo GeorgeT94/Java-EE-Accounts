@@ -17,13 +17,14 @@ public class AccountServiceDBImpl implements IService {
     @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
-    public Account getAccountById(int id) {
+    public Account getAccountById(long id) {
         return em.find(Account.class, id);
     }
     
     @Transactional(TxType.REQUIRED)
     public List<Account> getAccounts(){
-    	return em.createNamedQuery("account.getAllAccounts", Account.class).getResultList();
+    	return em.createNamedQuery("Account.getAll", Account.class).getResultList();
+    	
     }
     
 
@@ -32,6 +33,13 @@ public class AccountServiceDBImpl implements IService {
     public Account addAccount(Account account) {
         em.persist(account);
         return account;
+    }
+    
+    @Transactional
+    public Account updateFirstName(long id, String newFirstName) {
+    	Account account = getAccountById(id);
+    	account.setFirstName(newFirstName);
+    	return account;
     }
     
     @Transactional(TxType.REQUIRED)

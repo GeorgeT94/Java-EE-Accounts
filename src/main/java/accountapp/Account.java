@@ -12,22 +12,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 @Entity
+@NamedQuery(name="Account.getAll", query="SELECT a FROM Account a") 
+@XmlRootElement
 public class Account {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "account_id")
+	@XmlElement
 	private long id;
 	
 	@Column(length = 50)
+	@XmlElement
 	public String firstName;
 	
 	@Column(length = 50)
+	@XmlElement
 	public String lastName;
 	
 	@Column(length = 6)
+	@XmlElement
 	public String accountNumber;
 	
 

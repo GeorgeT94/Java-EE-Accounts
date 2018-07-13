@@ -22,7 +22,5 @@
       http://xmlns.jcp.org/xml/ns/javaee
       http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd" bean-discovery-mode="all">
       
-      <alternatives>
-        <class>com.qa.service.accountapp.AccountServiceDBImpl</class>
-    </alternatives>
+
 </beans>

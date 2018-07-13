@@ -24,15 +24,5 @@ public class Validate {
 		}
 	}
 	
-	public String getAccountFromJson(String jsonString) {
-		Account account = new Account();
-		JSONObject jsonObj = new JSONObject(jsonString);
-		
-		account.setFirstName(jsonObj.getString("firstName"));
-		account.setLastName(jsonObj.getString("lastName"));
-		account.setAccountNumber(jsonObj.getString("accountNumber"));
-		
-		return addAccount(account);
-	}
 	
 }

@@ -6,8 +6,10 @@ public interface IService {
 
 	public Account addAccount(Account account);
 	
-	public Account getAccountById(int id);
+	public Account getAccountById(long id);
 	
 	public List<Account> getAccounts();
+	
+	public Account updateFirstName(long id, String newFirstName);
 	
 }
