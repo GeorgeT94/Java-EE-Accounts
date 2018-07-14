@@ -17,15 +17,16 @@ import javax.xml.ws.handler.MessageContext;
 import Business.Service;
 import accountapp.Account;
 import accountapp.IService;
+import constants.Routes;
 
-@Path("/accounts")
+@Path(Routes.ROOT_PATH)
 public class Controller {
 	
 	@Inject
 	private Service service;
 	
 	@GET
-	@Path("/all")
+	@Path(Routes.GET_ALL_PATH)
 	public String getAllAccounts( @Context MessageContext req) {
 		String responseData = service.getAllAccountsAsJsonString();
 	    return responseData;
@@ -41,26 +42,26 @@ public class Controller {
 	}
 	
 	@POST @Consumes("application/json")
-	@Path("/create")
+	@Path(Routes.CREATE_ACCOUNT_PATH)
 	public String createAccount(final Account input) { 
 		return service.addAccount(input);
 		
 	}
 	
 	@PUT @Consumes("application/json")
-	@Path("/update/firstName")
+	@Path(Routes.UPDATE_FIRSTNAME_PATH)
 	public String updateFirstNme(final Account input) { 
 		return service.updateFirstName(input);
 	}
 	
 	@PUT @Consumes("application/json")
-	@Path("/update/lastName")
+	@Path(Routes.UPDATE_LASTNAME_PATH)
 	public String updateLastNumber(final Account input) { 
 		return service.updateLastName(input);
 	}
 	
 	@PUT @Consumes("application/json")
-	@Path("/update/accountNumber")
+	@Path(Routes.UPDATE_ACCOUNTNUMBER_PATH)
 	public String uupdateAccountnumber(final Account input) { 
 		return service.updateAccountNumber(input);
 	}

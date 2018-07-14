@@ -9,6 +9,8 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
+import constants.Messages;
+
 @ApplicationScoped
 @Default
 @Transactional(TxType.SUPPORTS)
@@ -70,7 +72,7 @@ public class AccountServiceDBImpl implements IService {
     	  Account account = getAccountById(id);
     	  em.remove(account);
     	  
-    	  return "this account has been deleted";
+    	  return Messages.ACCOUNT_DELTED_SUCCESSFUL;
     	  
     }
 }

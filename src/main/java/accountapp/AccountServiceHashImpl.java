@@ -8,6 +8,8 @@ import java.util.Map;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
 
+import constants.Messages;
+
 @ApplicationScoped
 @Alternative
 public class AccountServiceHashImpl implements IService{
@@ -25,7 +27,7 @@ public class AccountServiceHashImpl implements IService{
 	
 	public String deleteAccountById(long id) {
 		accounts.remove(String.valueOf(id));
-		return "account deleted";
+		return Messages.ACCOUNT_DELTED_SUCCESSFUL;
 		
 	}
 	

@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import Util.Util;
 import accountapp.Account;
 import accountapp.IService;
+import constants.Messages;
 
 public class Service {
 	
@@ -28,23 +29,30 @@ public class Service {
 	}
 	
 	public String addAccount(Account account) {
-		service.addAccount(account);
-		return "account added";
+		if(valid.isValidAccountNumber(account)) {
+			service.addAccount(account);
+			return Messages.ACCOUNT_CREATED_SUCCESSFUL;
+		}
+		return Messages.ACCOUNT_CREATED_UNSUCCESSFUL;
 	}
 	
 	public String updateFirstName(Account account) {
 		service.updateFirstName(account.getId(), account.firstName);
-		return "account updated";
+		return Messages.ACCOUNT_UPDATED_SUCCESSFUL;
 	}
 	
 	public String updateLastName(Account account) {
 		service.updateLastName(account.getId(), account.lastName);
-		return "account updated";
+		return Messages.ACCOUNT_UPDATED_SUCCESSFUL;
 	}
 	
 	public String updateAccountNumber(Account account) {
-		service.updateAccountNumber(account.getId(), account.accountNumber);
-		return "account updated";
+		if(valid.isValidAccountNumber(account)) {
+			service.updateAccountNumber(account.getId(), account.accountNumber);
+			return Messages.ACCOUNT_UPDATED_SUCCESSFUL;
+		}
+		return Messages.ACCOUNT_UPDATED_UNSUCCESSFUL;
+
 	}
 	
 	public String deleteAccountById(long id) {
